@@ -1,6 +1,7 @@
-package tree.sort;
+package metacube.get16.treesort;
 
 import java.util.Scanner;
+
 /**
  * 
  * @author Kritik Garg
@@ -33,7 +34,8 @@ public class Students {
 		scan.close();
 		System.out.println("sorted order of roll no");
 		// inorder of tree for sorted order
-		binarySearchTree.inorder();
+
+		System.out.println(binarySearchTree.inorder());
 		System.out.println("Process End.");
 
 	}

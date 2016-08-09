@@ -1,4 +1,4 @@
-package tree.sort;
+package metacube.get16.treesort;
 
 /**
  * Node of a binarytree

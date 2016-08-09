@@ -1,4 +1,6 @@
-package tree.sort;
+package metacube.get16.treesort;
+
+import java.util.ArrayList;
 
 /**
  * 
@@ -57,15 +59,17 @@ public class BinarySearchTree {
 	/**
 	 * For inorder traversal
 	 */
-	public void inorder() {
-		inorder(root);
+	public ArrayList<Integer> inorder() {
+		ArrayList<Integer> output = new ArrayList<Integer>();
+		inorder(root,output);
+		return output;
 	}
 
-	private void inorder(BinaryNode root) {
+	private void inorder(BinaryNode root,ArrayList<Integer> out) {
 		if (root != null) {
-			inorder(root.getLeft());
-			System.out.println(root.getData());
-			inorder(root.getRight());
+			inorder(root.getLeft(),out);
+			out.add(root.getData());
+			inorder(root.getRight(),out);
 		}
 	}
 

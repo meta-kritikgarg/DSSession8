@@ -1,20 +1,59 @@
-package sort;
+package metacube.get16.sort;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuickSort {
+/**
+ * 
+ * @author Kritik Garg
+ *
+ */
+public class ComparisonSort {
 
 	List<Integer> data;
 
-	public QuickSort(ArrayList<Integer> inData) {
+	/**
+	 * Constructor
+	 * 
+	 * @param inData
+	 */
+	public ComparisonSort(ArrayList<Integer> inData) {
 		data = inData;
+	}
+
+	/**
+	 * To call efficient method according to the size of Data
+	 */
+	public void sort() {
+		if (data.size() < 10) {
+			bubbleSort();
+			System.out.println("Bubble Sort");
+		} else {
+			quickSort();
+			System.out.println("Quick Sort");
+		}
+	}
+
+	/**
+	 * Method to rearrange list in ascending order of data by Bubble sort
+	 */
+	public void bubbleSort() {
+		int n = data.size();
+		for (int i = 0; i < data.size(); i++) {
+			for (int j = 1; j < n - i; j++) {
+				if (data.get(j - 1) > data.get(j)) {
+					swap(j, j - 1);
+				}
+			}
+
+		}
+
 	}
 
 	/**
 	 * Method to rearrange list in ascending order of data by quick sort
 	 */
-	public void reArrangeByQuickSort() {
+	public void quickSort() {
 		quickSort(0, data.size() - 1);
 	}
 
@@ -51,19 +90,27 @@ public class QuickSort {
 				}
 				// if i<j than swap
 				if (i < j) {
-					int tmp = data.get(i);
-					data.set(i, data.get(j));
-					data.set(j, tmp);
+					swap(i, j);
 				}
 			}
 			// set pivot to jth element & move pivot to proper position
-			int tmp = data.get(j);
-			data.set(j, data.get(pivot));
-			data.set(pivot, tmp);
+			swap(j, pivot);
 
 			// Repeat for sub arrays
 			quickSort(start, j - 1);
 			quickSort(j + 1, end);
 		}
+	}
+
+	/**
+	 * To swap index i to index j
+	 * 
+	 * @param i
+	 * @param j
+	 */
+	private void swap(int i, int j) {
+		int tmp = data.get(i);
+		data.set(i, data.get(j));
+		data.set(j, tmp);
 	}
 }
