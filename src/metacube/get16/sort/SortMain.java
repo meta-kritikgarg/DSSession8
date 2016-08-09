@@ -27,20 +27,21 @@ public class SortMain {
 			}
 
 		}
-		
-		System.out.println("Selsect sorting technique \n1 for ComparisonSort \n2 for Linear Sort");
-		
-		while(true) {
-			
+
+		System.out
+				.println("Selsect sorting technique \n1 for ComparisonSort \n2 for Linear Sort");
+
+		while (true) {
+
 			String userData = scan.next();
 
 			try {
 				int intData = Integer.valueOf(userData);
-				if(intData ==1 || intData == 2)
-				{
-					switch(intData) {
-					case 1: 
-						ComparisonSort comparisonSort = new ComparisonSort(inData);
+				if (intData == 1 || intData == 2) {
+					switch (intData) {
+					case 1:
+						ComparisonSort comparisonSort = new ComparisonSort(
+								inData);
 						comparisonSort.sort();
 						break;
 					case 2:
@@ -56,10 +57,12 @@ public class SortMain {
 
 		}
 
+		System.out.println("Sorted data");
 		for (Integer integer : inData) {
 			System.out.println(integer);
 		}
-		
+		System.out.println("Process End.");
+
 	}
 
 }

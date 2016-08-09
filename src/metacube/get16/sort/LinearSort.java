@@ -32,8 +32,10 @@ public class LinearSort {
 		for (Integer integer : inData) {
 			if (integer > 100) {
 				radixSort();
+				System.out.println("Radix Sort");
 				return;
 			}
+			System.out.println("Counting Sort");
 			countingSort();
 			return;
 		}
